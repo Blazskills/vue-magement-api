@@ -1,6 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Home from '../views/Home.vue'
+import Login from '../views/Login.vue'
+import SignUp from '../views/SignUp.vue'
+import Logout from '../views/Logout.vue'
+import Memberlist from '../views/memberList.vue'
+import MemberReg from '../views/memberRegPage.vue'
+
+
 
 Vue.use(VueRouter)
 
@@ -8,16 +15,40 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: Home,
+    meta: {
+      requiresLogin: true,
+    }
   },
+
+      {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+      {
+    path: '/signup',
+    name: 'SignUp',
+    component: SignUp
+  },
+
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/logout',
+    name: 'Logout',
+    component: Logout
+  },
+  
+   {
+    path: '/memberlist',
+    name: 'Memberlist',
+    component: Memberlist
+  }, ,
+    {
+    path: '/memberreg',
+    name: 'Memberreg',
+    component: MemberReg
+  },
+  
 ]
 
 const router = new VueRouter({
