@@ -51,7 +51,7 @@ body {
     width: auto;
 
     margin:100px 0 0 0 ;
-    background: ;
+    background: #ffffff;
     box-shadow: 0 14px 80px rgba(34, 35, 58, 0.2);
     padding: 40px 55px 45px 55px;
     border-radius: 0px;
