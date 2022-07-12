@@ -41,12 +41,18 @@ const routes = [
    {
     path: '/memberlist',
     name: 'Memberlist',
-    component: Memberlist
+    component: Memberlist,
+     meta: {
+      requiresLogin: true,
+    }
   }, ,
     {
     path: '/memberreg',
     name: 'Memberreg',
-    component: MemberReg
+      component: MemberReg,
+     meta: {
+      requiresLogin: true,
+    }
   },
   
 ]
