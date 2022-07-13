@@ -14,6 +14,7 @@
                     <th>Address</th>
                     <th>Gender</th>
                     <th>E-mail</th>
+                    <th>Purpose</th>
                     <th>current Job.</th>
                     <th>Invited By</th>
                     <th>Created By</th>
@@ -29,9 +30,10 @@
                     <td class="truncate" style="width: 50px;"> {{ member.home_address | truncate(25)}}</td>
                     <td v-text="member.gender"></td>
                     <td v-text="member.email"></td>
+                    <td v-text="member.motive"></td>
                     <td class="truncate">{{member.current_job | truncate(25)}}</td>
                     <td class="truncate">{{member.invited_by | truncate(25)}}</td>
-                    <td v-text="member.created_by"></td>
+                    <td v-html="(member.created_by ? member.created_by.first_name : 'None')"></td>
                     <td class="truncate">{{ member.created | moment}}</td>
                 </tr>
 
@@ -53,7 +55,7 @@ body {
     margin:100px 0 0 0 ;
     background: #ffffff;
     box-shadow: 0 14px 80px rgba(34, 35, 58, 0.2);
-    padding: 40px 55px 45px 55px;
+    padding: 40px 40px 45px 55px;
     border-radius: 0px;
     transition: all .3s;
 }

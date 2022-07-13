@@ -22,6 +22,19 @@ router.beforeEach((to, from, next) => {
   }
 })
 
+
+router.beforeEach((to, from, next) => {
+  if (to.name === 'Login' && store.getters.loggedIn) {
+     next({ name: 'home' })
+  }
+  else if (to.name === 'SignUp' && store.getters.loggedIn) {
+      next({ name: 'home' })
+  }
+  else {
+    next()
+  }
+})
+
 new Vue({
   router,
   store,
