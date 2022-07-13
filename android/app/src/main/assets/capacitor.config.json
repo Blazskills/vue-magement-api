@@ -1,0 +1,7 @@
+{
+	"appId": "com.manageContact.app",
+	"appName": "manageContact",
+	"webDir": "dist",
+	"bundledWebRuntime": false,
+	"npmclient": "npm"
+}
