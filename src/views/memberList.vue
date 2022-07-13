@@ -1,5 +1,6 @@
 <template>
     <div class="p-4">
+        <h1>List of all Members</h1>
         <span style="color: white;">LIST OF ALL YOUR MEMBERS</span>
         <br>
         <br>
