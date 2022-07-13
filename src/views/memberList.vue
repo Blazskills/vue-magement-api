@@ -21,7 +21,8 @@
                     <th>Joined</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody v-if="!processing">
+
                 <tr v-for="(member,  index) in members" :value="member.id" v-bind:key="member.id">
                     <td>{{index + 1}}</td>
                     <td v-text="member.firstname"></td>
@@ -36,9 +37,15 @@
                     <td v-html="(member.created_by ? member.created_by.first_name : 'None')"></td>
                     <td class="truncate">{{ member.created | moment}}</td>
                 </tr>
-
             </tbody>
         </table>
+        <div v-if="processing" style="text-align: center;">
+            <span style="color: black; display: inline-block; margin-left: 0;">Loading data.....</span>
+        </div>
+
+        <div v-if="dataSeen == false" style="text-align: center;">
+            <span style="color: black; display: inline-block; margin-left: 0;">No data Available .....</span>
+        </div>
     </div>
 </template>
 
@@ -80,7 +87,9 @@ export default {
     data() {
         return {
 
-           members:[] 
+            members: [],
+            processing: true,
+           dataSeen: true,
         }
         
     },
@@ -101,11 +110,19 @@ export default {
         getMember() {
             getApi.get('member-list/',{ headers: { Authorization: `Bearer ${this.$store.state.accessToken}` } })
                 .then(response => {
-                this.members = response.data.data
-                console.log(response)
+                    this.members = response.data.data
+                    this.processing = false;
+                    dataLength = Object.keys(response.data.data).length
+                    if (dataLength < 1) {
+                        this.processing = true;
+                        this.dataSeen = false;
+                    }
+                    // console.log(Object.keys(response.data.data).length)
+                // console.log(response)
             })
                 .catch(error => {
-                console.log(error)
+                    this.processing = false;
+                // console.log(error)
             })
         }
     },
