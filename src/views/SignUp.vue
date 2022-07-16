@@ -5,30 +5,30 @@
             <span class="loader"><span class="loader-inner"></span></span>
         </div>
         <div v-if="signUpData.signUpError" class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>Error!</strong> {{ this.signUpData.signUpErrorMsg }}
+            <strong>Error!</strong> {{ signUpData.signUpErrorMsg }}
 
         </div>
         <div v-if="signUpData.signUpSuccess" class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Success!</strong> {{ this.signUpData.signUpSucessMsg }}
+            <strong>Success!</strong> {{ signUpData.signUpSucessMsg }}
         </div>
         <div class="mb-3">
             <label for="exampleInputFirstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" v-model="first_name" id="exampleInputFirstName">
+            <input type="text" required class="form-control" v-model="first_name" id="exampleInputFirstName">
 
         </div>
         <div class="mb-3">
             <label for="exampleInputLastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" v-model="last_name" id="exampleInputLastName">
+            <input type="text" class="form-control" required v-model="last_name" id="exampleInputLastName">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" v-model="email" id="exampleInputEmail1">
+            <input type="email" class="form-control" required v-model="email" id="exampleInputEmail1">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputUsername" class="form-label">Username</label>
-            <input type="text" class="form-control" v-model="username" id="exampleInputUsername">
+            <input type="text" class="form-control" required v-model="username" id="exampleInputUsername">
         </div>
         <div class="mb-3">
             <select v-model="position" required class="form-select">
@@ -64,12 +64,13 @@
 
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" v-model="password" id="exampleInputPassword1">
+            <input type="password" class="form-control" required v-model="password" id="exampleInputPassword1">
             <span style="color: red;" v-if="msg.password">{{msg.password}}</span>
         </div>
         <div class="mb-3">
             <label for="exampleInputConfirmPassword" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" v-model="password_confirm" id="exampleInputConfirmPassword">
+            <input type="password" class="form-control" required v-model="password_confirm"
+                id="exampleInputConfirmPassword">
         </div>
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -233,7 +234,6 @@ export default {
                     tenant: this.tenant,
                     password: this.password,
                     password_confirm: this.password_confirm,
-
                 }
                 try {
                     this.allDatas.isVisible = true;
