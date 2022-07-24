@@ -24,6 +24,11 @@
         </div>
 
         <div class="mb-3">
+            <label for="exampleInputDob" class="form-label"> DOB</label>
+            <input type="date" placeholder="Date of birth" class="form-control" v-model="dob" id="exampleInputDob">
+        </div>
+
+        <div class="mb-3">
             <select v-model="gender" required class="form-select">
                 <option selected disabled value="">Gender</option>
                 <option value="MALE">MALE</option>
@@ -195,6 +200,7 @@
 import axios from 'axios';
 import { getApi } from "@/axios";
 import { mapState } from 'vuex'
+import moment from 'moment'
 
 export default {
     name: "MemberReg",
@@ -217,6 +223,7 @@ export default {
             purpose: '',
             relatedTo: '',
             notify: '',
+            dob: null,
             checked: false,
             errorAlert: false,
             successAlert: false,
@@ -246,11 +253,14 @@ export default {
                     current_job: this.currentJob,
                     contact_via: this.contactVia,
                     motive: this.purpose,
+                    dob: this.dob,
                     related_to_old_church_member: this.checked,
                     related_to_who: this.relatedTo,
                     notify: this.notify,
             }
             try {
+                // console.log(this.dob)
+
                const response = await getApi.post('create-member/', data, { headers: {Authorization: `Bearer ${this.$store.state.accessToken}`}})
                 console.log(response) 
                 this.msgRegErrorMsg = "Successfully Registered"
@@ -272,6 +282,8 @@ export default {
                 this.purpose = ''
                 this.relatedTo = ''
                 this.notify = ''
+                this.dob = null
+
                 
 
             }
@@ -279,7 +291,7 @@ export default {
                 this.successAlert = false;
                 this.errorAlert = true
                 this.msgRegErrorMsg = error.response.data.message
-                console.log(error.response.data.message)
+                console.log(error.response)
             }
                
           
@@ -303,7 +315,21 @@ export default {
                 this.msg['relatedTo'] = '';
 
            }
-        }     
+        }, 
+
+        dob(value) {
+            if (value === null || value === '') {
+                console.log(value)
+                console.log('Empty')
+                value = null
+                return null
+            }
+            else {
+                console.log(value)
+                console.log('not empty')
+                return moment(value).format('YYYY-MM-DD')
+            }
+        }
 
     }
 

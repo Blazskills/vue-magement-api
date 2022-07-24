@@ -18,6 +18,7 @@
                     <th>Purpose</th>
                     <th>current Job.</th>
                     <th>Invited By</th>
+                    <th>DOB</th>
                     <th>Created By</th>
                     <th>Joined</th>
                 </tr>
@@ -35,6 +36,19 @@
                     <td v-text="member.motive"></td>
                     <td class="truncate">{{member.current_job | truncate(25)}}</td>
                     <td class="truncate">{{member.invited_by | truncate(25)}}</td>
+                    <!-- <td class="truncate">{{member.dob | moment}}</td> -->
+                    <!-- <td class="truncate" v-html="jsonMethod(member.dob ? member.dob : 'None')">
+
+                    </td> -->
+
+                    <!-- <td class="truncate" v-html="(member.dob ? member.dob : 'None')">
+
+                    </td> -->
+                    <!-- <td class="truncate">
+                        
+                        {{member.dob}} ? member.dob | moment : 'None'
+                    
+                    </td> -->
                     <td v-html="(member.created_by ? member.created_by.first_name : 'None')"></td>
                     <td class="truncate">{{ member.created | moment}}</td>
                 </tr>
@@ -106,12 +120,15 @@ export default {
     },
     methods: {
 
-        
+        jsonMethod(date) {
+            return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+        },
 
         getMember() {
             getApi.get('member-list/',{ headers: { Authorization: `Bearer ${this.$store.state.accessToken}` } })
                 .then(response => {
                     this.members = response.data.data
+                    // console.log(response.data)
                     this.processing = false;
                     dataLength = Object.keys(response.data.data).length
                     if (dataLength < 1) {
