@@ -36,14 +36,14 @@
                     <td v-text="member.motive"></td>
                     <td class="truncate">{{member.current_job | truncate(25)}}</td>
                     <td class="truncate">{{member.invited_by | truncate(25)}}</td>
-                    <td class="truncate">{{ member.custom_dob | moment}}</td>
+                    <!-- <td class="truncate">{{ member.custom_dob | moment}}</td> -->
                     <!-- <td class="truncate" v-html="jsonMethod(member.dob ? member.dob : 'None')">
 
                     </td> -->
 
-                    <!-- <td class="truncate" v-html="(member.custom_dob ? member.custom_dob : 'None')">
+                    <td class="truncate" v-html="(member.custom_dob ? member.custom_dob : 'None')">
 
-                    </td> -->
+                    </td>
                     <!-- <td class="truncate">
                         
                         {{member.dob}} ? member.dob | moment : 'None'
