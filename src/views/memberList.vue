@@ -18,7 +18,7 @@
                     <th>Purpose</th>
                     <th>current Job.</th>
                     <th>Invited By</th>
-                    <!-- <th>DOB</th> -->
+                    <th>DOB</th>
                     <th>Created By</th>
                     <th>Joined</th>
                 </tr>
@@ -41,9 +41,9 @@
 
                     </td> -->
 
-                    <!-- <td class="truncate" v-html="(member.dob ? member.dob : 'None')">
+                    <td class="truncate" v-html="(member.dob ? member.dob : 'None')">
 
-                    </td> -->
+                    </td>
                     <!-- <td class="truncate">
                         
                         {{member.dob}} ? member.dob | moment : 'None'
