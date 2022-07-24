@@ -41,9 +41,9 @@
 
                     </td> -->
 
-                    <!-- <td class="truncate" v-html="(member.dob ? member.dob : 'None')">
+                    <td class="truncate" v-html="(member.dob ? member.dob : 'None')">
 
-                    </td> -->
+                    </td>
                     <!-- <td class="truncate">
                         
                         {{member.dob}} ? member.dob | moment : 'None'
@@ -119,16 +119,11 @@ export default {
         }
     },
     methods: {
-
-        jsonMethod(date) {
-            return moment(date).format('MMMM Do YYYY, h:mm:ss a');
-        },
-
         getMember() {
             getApi.get('member-list/',{ headers: { Authorization: `Bearer ${this.$store.state.accessToken}` } })
                 .then(response => {
                     this.members = response.data.data
-                    // console.log(response.data)
+                    console.log(response.data)
                     this.processing = false;
                     dataLength = Object.keys(response.data.data).length
                     if (dataLength < 1) {
@@ -140,7 +135,7 @@ export default {
             })
                 .catch(error => {
                     this.processing = false;
-                // console.log(error)
+                console.log(error)
             })
         }
     },
