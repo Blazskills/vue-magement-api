@@ -115,7 +115,7 @@ export default {
             return reqdString;
         },
         moment: function (date) {
-            return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+            return moment(date).format('MMMM Do YYYY');
         }
     },
     methods: {
@@ -135,7 +135,7 @@ export default {
             })
                 .catch(error => {
                     this.processing = false;
-                console.log(error)
+                console.log("Error coming from vue js " + error)
             })
         }
     },
