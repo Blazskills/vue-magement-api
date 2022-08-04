@@ -1,9 +1,18 @@
 <template>
     <form @submit.prevent="login">
         <h3>Login</h3>
-        <div v-if="incorrectAuth" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <div v-if="incorrectAuth & errormsg != null" class="alert alert-danger alert-dismissible fade show"
+            role="alert">
+            <strong>Error!</strong> {{errormsg}}
+        </div>
+
+
+
+        <div v-if="incorrectAuth & errormsg == null" class="alert alert-danger alert-dismissible fade show"
+            role="alert">
             <strong>Error!</strong> Incorrect username or password entered - please try again
         </div>
+
         <div class="form-group">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
             <input type="text" class="form-control" v-model="email" id="exampleInputEmail1"
@@ -32,6 +41,8 @@ export default {
             email: '',
             password: '',
             incorrectAuth: false,
+            errormsg: null,
+
 
         }
     },
@@ -42,6 +53,8 @@ export default {
                 password: this.password
             })
                 .then((response) => {
+                    this.incorrectAuth = false
+                    this.errormsg = null,
                     // console.log(response)
                     localStorage.setItem('token', response.data.token.access)
                     localStorage.setItem('refresh', response.data.token.refresh)
@@ -49,6 +62,8 @@ export default {
                 })
                 .catch(err => {
                     // console.log(err)
+                    this.errormsg = err.response.data.message
+                    // console.log(this.errormsg)
                     this.incorrectAuth = true
                 })
         }
