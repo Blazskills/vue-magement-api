@@ -6,6 +6,11 @@ import SignUp from '../views/SignUp.vue'
 import Logout from '../views/Logout.vue'
 import Memberlist from '../views/memberList.vue'
 import MemberReg from '../views/memberRegPage.vue'
+import RecordArbitrage from '../views/ArbitrageReg.vue'
+import Arbitragelist from '../views/ArbitrageList.vue'
+import ArbitrageReport from '../views/ArbitrageP&l.vue'
+
+
 
 
 
@@ -16,6 +21,33 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home,
+    meta: {
+      requiresLogin: true,
+    }
+  },
+  
+  {
+    path: '/computearbitrage',
+    name: 'ArbitrageReport',
+    component: ArbitrageReport,
+    meta: {
+      requiresLogin: true,
+    }
+  },
+  {
+    path: '/recordarbitrage',
+    name: 'RecordArbitrage',
+    component: RecordArbitrage,
+    meta: {
+      requiresLogin: true,
+    }
+  },
+
+  
+  {
+    path: '/listarbitrage',
+    name: 'Listarbitrage',
+    component: Arbitragelist,
     meta: {
       requiresLogin: true,
     }

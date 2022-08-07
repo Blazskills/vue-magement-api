@@ -14,9 +14,16 @@
                     <li class="nav-item">
                         <router-link class="nav-link" to="/logout">Logout</router-link>
                     </li>
-                    <!-- <li class="nav-item">
-                        <router-link class="nav-link" to="/signup">Sign up</router-link>
-                    </li> -->
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/recordarbitrage">Record Arbitrage</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/listarbitrage">Arbitrage Records</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/computearbitrage">Arbitrage Computation</router-link>
+                    </li>
+
 
 
                 </ul>
