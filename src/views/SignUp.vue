@@ -23,12 +23,12 @@
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" required v-model="email" id="exampleInputEmail1">
+            <input type="email" class="form-control" required v-model.trim="email" id="exampleInputEmail1">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputUsername" class="form-label">Username</label>
-            <input type="text" class="form-control" required v-model="username" id="exampleInputUsername">
+            <input type="text" class="form-control" required v-model.trim="username" id="exampleInputUsername">
         </div>
         <div class="mb-3">
             <select v-model="position" required class="form-select">
@@ -64,12 +64,12 @@
 
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" required v-model="password" id="exampleInputPassword1">
+            <input type="password" class="form-control" required v-model.trim="password" id="exampleInputPassword1">
             <span style="color: red;" v-if="msg.password">{{msg.password}}</span>
         </div>
         <div class="mb-3">
             <label for="exampleInputConfirmPassword" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" required v-model="password_confirm"
+            <input type="password" class="form-control" required v-model.trim="password_confirm"
                 id="exampleInputConfirmPassword">
         </div>
         <div class="mb-3 form-check">

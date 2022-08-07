@@ -44,7 +44,7 @@
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" v-model="email" placeholder="optional" id="exampleInputEmail1"
+            <input type="email" class="form-control" v-model.trim="email" placeholder="optional" id="exampleInputEmail1"
                 pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$">
         </div>
 

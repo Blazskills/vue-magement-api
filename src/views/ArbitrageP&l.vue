@@ -17,7 +17,7 @@
 
             <div class="mb-3">
                 <label for="xampleInputCT" class="form-label"> Select Your arbitrage bind</label>
-                <select v-model="combine_tag" class="form-select">
+                <select v-model="combine_tag" required class="form-select">
                     <option selected disabled value="">Available Bind Record</option>
                     <option v-for="combine_tag in allTenants.combine_tag" :value="combine_tag.id"
                         v-bind:key="combine_tag.id">{{
@@ -31,7 +31,7 @@
 
 
             <div class="mb-3">
-                <select v-model="convert_from" class="form-select">
+                <select v-model="convert_from" required class="form-select">
                     <option selected disabled value="">Convert From</option>
                     <option v-for="currency in allTenants.currency" :value="currency.id" v-bind:key="currency.id">{{
                         currency.currency_name
@@ -42,7 +42,7 @@
             </div>
 
             <div class="mb-3">
-                <select v-model="convert_to" class="form-select">
+                <select v-model="convert_to" required class="form-select">
                     <option selected disabled value="">Convert To</option>
                     <option v-for="currency in allTenants.currency" :value="currency.id" v-bind:key="currency.id">{{
                         currency.currency_name
@@ -54,15 +54,15 @@
 
             <div class="mb-3">
                 <label for="exampleInputBR" class="form-label">Your Current Exchange Rate</label>
-                <input type="number" min="0.00" step="0.01" class="form-control" v-model="current_exchange_rate"
-                    placeholder="630" id="exampleInputBR">
+                <input type="number" min="0.00" step="0.01" class="form-control" required
+                    v-model="current_exchange_rate" placeholder="630" id="exampleInputBR">
             </div>
 
 
             <div class="mb-3">
                 <label for="exampleInputBR" class="form-label">Total Available Bought Portfolio</label>
                 <input type="number" min="0.00" step="0.01" class="form-control"
-                    v-model="total_buy_available_for_conversion" placeholder="17" id="exampleInputBR">
+                    v-model="total_buy_available_for_conversion" required placeholder="17" id="exampleInputBR">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
