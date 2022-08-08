@@ -36,7 +36,15 @@
                 id="exampleInputBuy">
         </div>
 
-        
+        <div class="mb-3">
+            <label for="exampleInputFBD" class="form-label">Final Buy Dropped</label>
+            <input type="number" min="0.00" step="0.01" class="form-control" v-model="final_buy_dropped"
+                placeholder="Amount that dropped finally" id="exampleInputFBD">
+        </div>
+
+
+
+
         <div class="mb-3">
             <select v-model="currency" required class="form-select">
                 <option selected disabled value="">currency</option>
@@ -237,6 +245,7 @@ export default {
             phone: '',
             buy: '',
             bank_name: '',
+            final_buy_dropped: '',
             bank_rate: '',
             LEC: '',
             current_exchange_rate: '',
@@ -269,16 +278,18 @@ export default {
                 phone: this.phone,
                 buy: parseFloat(this.buy),
                 local_equivalent_charged: this.LEC,
-                bank_rate: this.bank_rate,
+                bank_rate: parseFloat(this.bank_rate),
                 bank_name: this.bank_name,
-                current_exchange_rate: this.current_exchange_rate,
+                current_exchange_rate: parseFloat(this.current_exchange_rate),
                 current_exchange_site: this.current_exchange_site,
                 account_details: this.account_details,
                 status: this.status,
-                expected_profit: this.expected_profit,
-                extra_charge_cost: this.extra_charge_cost,
+                expected_profit: parseFloat(this.expected_profit),
+                extra_charge_cost: parseFloat(this.extra_charge_cost),
                 extra_charge_currency: this.extra_charge_currency,
                 combine_tag: this.combine_tag,
+                final_buy_dropped: parseFloat(this.final_buy_dropped),
+
                    
             }
             try {
@@ -306,7 +317,9 @@ export default {
                 this.expected_profit = "",
                 this.extra_charge_cost = "",
                 this.extra_charge_currency = "",
-                this.combine_tag = ""
+                this.combine_tag = "",
+                this.final_buy_dropped= ""
+                
 
 
                 

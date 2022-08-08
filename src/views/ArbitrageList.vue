@@ -1,7 +1,7 @@
 <template>
     <div class="p-4">
-        <h1>List of all Members</h1>
-        <span style="color: white;">LIST OF ALL YOUR MEMBERS</span>
+        <h1>List Of All Arbitrage</h1>
+        <span style="color: white;">LIST OF ALL Arbitrage</span>
         <br>
         <br>
         <br>
@@ -13,8 +13,9 @@
                     <!-- <th>Last name</th> -->
                     <th>currency</th>
                     <th>phone </th>
-                    <th>buy</th>
-                    <th>LEC</th>
+                    <th>Buy</th>
+                    <th>Final Buy Dropped</th>
+                    <th>Local Equivalent Charged</th>
                     <th>Bank Rate</th>
                     <th>Bank Rame</th>
                     <th>Current Exchange Rate</th>
@@ -23,8 +24,8 @@
                     <th>Status</th>
                     <th>Expected Profit</th>
                     <th>Extra Charge cost</th>
-                    <th>Cxtra Charge Currency</th>
-                    <th>Combine tag</th>
+                    <th>Extra Charge Currency</th>
+                    <th>Combine Tag</th>
                     <th>Created By</th>
                 </tr>
             </thead>
@@ -37,6 +38,7 @@
                     <td v-text="member.currency"></td>
                     <td v-text="member.phone"></td>
                     <td v-text="member.buy"></td>
+                    <td v-text="member.final_buy_dropped"></td>
                     <td v-text="member.local_equivalent_charged"></td>
                     <td v-text="member.bank_rate"></td>
                     <td v-text="member.bank_name"></td>
