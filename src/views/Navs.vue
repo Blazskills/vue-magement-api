@@ -15,7 +15,7 @@
                         <router-link class="nav-link" to="/logout">Logout</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/recordarbitrage">Record Arbitrage</router-link>
+                        <router-link class="nav-link" to="/recordarbitrage">Log New Arbitrage</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link" to="/listarbitrage">Arbitrage Records</router-link>
