@@ -113,13 +113,13 @@
 
         <div class="mb-3">
             <label for="exampleInputECC" class="form-label"> Extra Cost Charge </label>
-            <input type="number" min="0.00" step="0.01" class="form-control" v-model="extra_charge_cost"
+            <input type="number" min="0.00" step="0.01" class="form-control" required v-model="extra_charge_cost"
                 placeholder="34" id="exampleInputECC">
         </div>
 
 
         <div class="mb-3">
-            <select v-model="extra_charge_currency" class="form-select">
+            <select v-model="extra_charge_currency" required class="form-select">
                 <label for="exampleInputCC" class="form-label"> Extra Currency Charge</label>
                 <option selected disabled value="">Extra Charge Currency</option>
                 <option v-for="currency in allTenants.currency" :value="currency.id" v-bind:key="currency.id">{{
