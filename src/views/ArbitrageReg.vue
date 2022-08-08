@@ -119,7 +119,7 @@
 
 
         <div class="mb-3">
-            <select v-model="extra_charge_currency" required class="form-select">
+            <select v-model="extra_charge_currency" class="form-select">
                 <label for="exampleInputCC" class="form-label"> Extra Currency Charge</label>
                 <option selected disabled value="">Extra Charge Currency</option>
                 <option v-for="currency in allTenants.currency" :value="currency.id" v-bind:key="currency.id">{{
