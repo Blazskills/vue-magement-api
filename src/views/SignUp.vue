@@ -55,7 +55,7 @@
         <div class="mb-3">
             <select v-model="tenant" required class="form-select">
                 <option selected disabled value="">Tenant</option>
-                <option v-for="tenant in allTenants" :value="tenant.id" v-bind:key="tenant.id">{{ tenant.name }}
+                <option v-for="tenant in allTenants.data" :value="tenant.id" v-bind:key="tenant.id">{{ tenant.name }}
                 </option>
                 <!--  <option value="2">tenant2</option>-->
             </select>
